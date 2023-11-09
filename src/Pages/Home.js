@@ -6,6 +6,8 @@ import { BiSearch } from "react-icons/bi";
 function Home() {
   const [theme] = useThemeHook();
   const [searchInput, setSearchInput] = useState("");
+  const [productData, setProductData] = useState([]);
+
   return (
     <Container className="py-4">
       <Row className="justify-content-center">
