@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-import {useThemeHook} from "./Components/ThemeProvider"
+import {useThemeHook} from "./GlobalComponents/ThemeProvider"
 
 
 function App() {
@@ -9,9 +9,9 @@ function App() {
   const [theme] = useThemeHook();
   return (
     <main className={theme? "bg-black": "bg-light-2"}>
-    App
+      App
     </main>
-  );
+  )
 }
 
 export default App;

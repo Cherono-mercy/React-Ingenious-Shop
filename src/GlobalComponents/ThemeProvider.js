@@ -15,9 +15,9 @@ useEffect(() => {
 
 const setThemeMode = mode => setTheme(mode);
   return (
-    <ThemeProvider value={{theme, setThemeMode}}>
+    <ThemeContext.Provider value={{theme, setThemeMode}}>
         {props.children}
-    </ThemeProvider>
+    </ThemeContext.Provider>
   )
 }
 
