@@ -3,6 +3,7 @@ import { Container, Row, Col, InputGroup, FormControl, Form } from "react-bootst
 import { useThemeHook } from "../GlobalComponents/ThemeProvider";
 import { BiSearch } from "react-icons/bi";
 import SearchFilter from "react-filter-search"
+import ProductCard from "../Components/ProductCard";
 
 function Home() {
   const [theme] = useThemeHook();
@@ -44,8 +45,8 @@ function Home() {
          data={productData}
          renderResults = {results => (
             <Row className="justify-content-center">
-              {results.map((item, i) => (
-                <h1>{item.title}</h1>
+              {results.map((item, index) => (
+                <ProductCard data={item} key={index}/>
               ))}
             </Row>
          )}
