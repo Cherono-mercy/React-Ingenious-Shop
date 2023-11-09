@@ -74,7 +74,8 @@ function Cart() {
                   <td>Ksh. {item.price}</td>
                   <td>Quantity ({item.quantity})</td>
                   <td>
-                    <Button className="ms-2"> - </Button>
+                    <Button onClick={()=> updateItemQuantity(item.id, item.quantity - 1)} className="ms-2"> - </Button>
+                    <Button onClick={()=> updateItemQuantity(item.id, item.quantity + 1)} className="ms-2"> + </Button>
                   </td>
                 </tr>
               );
