@@ -25,7 +25,7 @@ function ProductCard(props) {
             </div>
         </div>
       
-      <Card.Body>
+      <Card.Body className= {`${theme? "bg-light-black text-light" : "bg-light text-black"}`}>
         <Card.Title style={{textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap"}}>
             {title}
         </Card.Title>

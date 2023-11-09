@@ -107,7 +107,7 @@ function Cart() {
         {!isEmpty && <Row style={{position: "fixed", bottom: 0}}
         className={`${theme? "bg-light-black text-light" : "bg-light text-black"}justify-content-center w-100`}
         >
-          <Col className="py-2">
+          <Col className= {`${theme? "bg-light-black text-light" : "bg-light text-black"} py-2`} >
           <h4>Total Price: Ksh. {cartTotal}</h4>
           </Col>
           <Col className="p-0" md={4}>
