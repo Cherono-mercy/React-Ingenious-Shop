@@ -8,8 +8,7 @@ function Cart() {
   const [theme] = useThemeHook();
   const {
     isEmpty,
-    totalUniqueItems,
-    totalItems,
+ 
     items,
     cartTotal,
     updateItemQuantity,
@@ -74,14 +73,55 @@ function Cart() {
                   <td>Ksh. {item.price}</td>
                   <td>Quantity ({item.quantity})</td>
                   <td>
-                    <Button onClick={()=> updateItemQuantity(item.id, item.quantity - 1)} className="ms-2"> - </Button>
-                    <Button onClick={()=> updateItemQuantity(item.id, item.quantity + 1)} className="ms-2"> + </Button>
+                    <Button
+                      onClick={() =>
+                        updateItemQuantity(item.id, item.quantity - 1)
+                      }
+                      className="ms-2"
+                    >
+                      {" "}
+                      -{" "}
+                    </Button>
+                    <Button
+                      onClick={() =>
+                        updateItemQuantity(item.id, item.quantity + 1)
+                      }
+                      className="ms-2"
+                    >
+                      {" "}
+                      +{" "}
+                    </Button>
+                    <Button
+                      variant="danger"
+                      onClick={() => removeItem(item.id)}
+                      className="ms-2"
+                    >
+                      Remove Item
+                    </Button>
                   </td>
                 </tr>
               );
             })}
           </tbody>
         </Table>
+        {!isEmpty && <Row style={{position: "fixed", bottom: 0}}
+        className={`${theme? "bg-light-black text-light" : "bg-light text-black"}justify-content-center w-100`}
+        >
+          <Col className="py-2">
+          <h4>Total Price: Ksh. {cartTotal}</h4>
+          </Col>
+          <Col className="p-0" md={4}>
+          <Button variant="danger" className="m-2" onClick={() => emptyCart()}>
+            <BsCartX size="1.7rem"/>
+             Clear Cart
+          </Button>
+          <Button variant="success" className="m-2" >
+            <BsCartCheck size="1.7rem"/>
+             Clear Cart
+          </Button>
+          </Col>
+          
+          </Row>}
       </Row>
     </Container>
   );
