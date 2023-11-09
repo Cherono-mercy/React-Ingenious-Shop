@@ -2,11 +2,22 @@ import React, { useEffect, useState } from "react";
 import { Container, Row, Col, InputGroup, FormControl, Form } from "react-bootstrap";
 import { useThemeHook } from "../GlobalComponents/ThemeProvider";
 import { BiSearch } from "react-icons/bi";
+import SearchFilter from "react-filter-search"
 
 function Home() {
   const [theme] = useThemeHook();
   const [searchInput, setSearchInput] = useState("");
   const [productData, setProductData] = useState([]);
+
+  //Fetching product data from API using fetch and the useEffect Hook
+  useEffect(() => {
+   fetch("http://localhost:8000/products")
+   .then((r) => r.json())
+   .then((products) => {
+    setProductData(products)       //Updating the state of product data to the fetched product array
+    console.log(productData);
+   })
+  },[])  //Empty dependencies array to fetch the data only once
 
   return (
     <Container className="py-4">
@@ -26,9 +37,19 @@ function Home() {
               className={theme? "bg-light-black text-light" : "bg-light text-black"}
             />
           </InputGroup>
-          {searchInput}
+          
         </Col>
-        
+        <SearchFilter
+         value={searchInput}
+         data={productData}
+         renderResults = {results => (
+            <Row className="justify-content-center">
+              {results.map((item, i) => (
+                <h1>{item.title}</h1>
+              ))}
+            </Row>
+         )}
+        />
       </Row>
     </Container>
   );
