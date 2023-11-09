@@ -45,7 +45,7 @@ const {
             className={`${darkMode? "text-dark-primary" : "text-light-primary"} d-flex align-items-center`}
             >
                 <BiCart size="2rem"/>
-                {!isEmpty && <span style={{position: "relative", left: "-21px", top: "-18px"}}>{}totalItems</span>}
+                {!isEmpty && <span style={{position: "relative", left: "-21px", top: "-18px"}}>{totalItems}</span>}
                 <span style={{marginLeft: !isEmpty? "-13px" : 0}}>Cart</span>
             </Link>
             
@@ -56,4 +56,4 @@ const {
   )
 }
 
-export default Header
+export default Header;
