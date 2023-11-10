@@ -12,7 +12,7 @@ const [darkMode, setDarkMode] = useState(theme);
 
 useEffect(()=> {
   setThemeMode(darkMode);
-}, [darkMode]);
+});
 
 const {
     isEmpty,

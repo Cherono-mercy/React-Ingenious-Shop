@@ -17,7 +17,7 @@ function ProductDetails(props) {
       .then((r) => r.json())
       .then((product) => setProductData(product));
     console.log(productData);
-  }, []);
+  });
 
   return (
     <Container className="py-5">
