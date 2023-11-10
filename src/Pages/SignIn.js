@@ -29,18 +29,15 @@ function SignIn() {
     if(username && password){
         setLoading(true);
         console.log(username, password);
-        fetch("http://fakestoreapi.com/auth/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                username: username,
-                password: password
+        fetch('https://fakestoreapi.com/auth/login',{
+            method:'POST',
+            body:JSON.stringify({
+                username: "username",
+                password: "password"
             })
         })
-        .then((r) => r.json())
-        .then(json => sessionStorage.setItem("token", json.token))
+            .then(res=>res.json())
+            .then(json=>console.log(json))
         .catch(error => console.error(error))
         .finally(() => {
             setLoading(false);
