@@ -1,71 +1,78 @@
-# Getting Started with Create React App
+#### React-Ingenious-Online-Store
+## **By Cherono Mercy 10/11/2023**
+#### Project Description
+For this project, I was working on Ingenious, an online app where users get to shop for products including clothing and 
+jewelery.
+    
+#### Project Deliverables
+As a user,
+1. I can see a list of all the projects available displayed with their images and prices.
+I needed to make a GET request to http://localhost:8000/products to fetch the data from my json server.
+2. I can click on a product to get its details including its description and rating.
+Note, I should only be displaying the details of one product at a time.
+To get the details I was making a GET request to http://localhost:8000/products/${props.productId} passing in the
+id of the selected product.
+3. When viewing a product's details, I should be able to add that particular item to my cart.
+This should then be displayed in my cart
+4. I should be able to add an item to cart from the Home page where the list of products is displayed.
+5. I can search for a product from the Search Bar in the Home Page component.
+6. I can navigate from Home to Cart to Sign-in and Register Pages by clicking on the NavBar links. 
+I was able to implement this using the React Router Hook.
+7. As a new user, I can Register for an account and once registered I can sign-in to the application and start shopping.
+The user Registration details are captured by making  a POST request to https://fakestoreapi.com/users as the users database.
+For user sign-in authentication, a POST request is made to https://fakestoreapi.com/auth/login to get the user unique token.
+8. I sould be directed back to the Home Page after signing in.
+   
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### Technologies
+ -JavaScript
+ -React
+ -Terminal
 
-## Available Scripts
+ #### Project Site
+ This project is live at https://cherono-mercy.github.io/React-Ingenious-Shop/
 
-In the project directory, you can run:
 
-### `npm start`
+## Project Setup & Pre-requisite Data
+    -Fork this repository
+    -Clone the repository to your local eironment
+    -Run the command: [npm install] to install the project dependencies
+    - In your project directory, create a db.json file and use the link below for your server DB.
+    https://fakestoreapi.com/products
+    - Run the following command to get the backend started:
+    json-server --watch db.json
+    - Test your server by visiting this route in the browser:
+     http://localhost:8000/products
+    -Run npm start to run the project in the browser
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  ## License 
+  MIT License
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Copyright (c) 2023 Mercy Cherono
 
-### `npm test`
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-### `npm run build`
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Known Bugs
+    The Ingenious app works as required.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Support and contact details
+    - email:: cheronom142@gmail.com
+    - phone:: +254703210464
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# React-Ingenious-Shop
