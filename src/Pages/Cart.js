@@ -5,10 +5,10 @@ import { useThemeHook } from "../GlobalComponents/ThemeProvider";
 import { BsCartCheck, BsCartX } from "react-icons/bs";
 
 function Cart() {
+  //Creating the cart page using Bootstrap
   const [theme] = useThemeHook();
   const {
     isEmpty,
- 
     items,
     cartTotal,
     updateItemQuantity,
@@ -104,24 +104,36 @@ function Cart() {
             })}
           </tbody>
         </Table>
-        {!isEmpty && <Row style={{position: "fixed", bottom: 0}}
-        className={`${theme? "bg-light-black text-light" : "bg-light text-black"}justify-content-center w-100`}
-        >
-          <Col className= {`${theme? "bg-light-black text-light" : "bg-light text-black"} py-2`} >
-          <h4>Total Price: Ksh. {cartTotal}</h4>
-          </Col>
-          <Col className="p-0" md={4}>
-          <Button variant="danger" className="m-2" onClick={() => emptyCart()}>
-            <BsCartX size="1.7rem"/>
-             Clear Cart
-          </Button>
-          <Button variant="success" className="m-2" >
-            <BsCartCheck size="1.7rem"/>
-             Clear Cart
-          </Button>
-          </Col>
-          
-          </Row>}
+        {!isEmpty && (
+          <Row
+            style={{ position: "fixed", bottom: 0 }}
+            className={`${
+              theme ? "bg-light-black text-light" : "bg-light text-black"
+            }justify-content-center w-100`}
+          >
+            <Col
+              className={`${
+                theme ? "bg-light-black text-light" : "bg-light text-black"
+              } py-2`}
+            >
+              <h4>Total Price: Ksh. {cartTotal}</h4>
+            </Col>
+            <Col className="p-0" md={4}>
+              <Button
+                variant="danger"
+                className="m-2"
+                onClick={() => emptyCart()}
+              >
+                <BsCartX size="1.7rem" />
+                Clear Cart
+              </Button>
+              <Button variant="success" className="m-2">
+                <BsCartCheck size="1.7rem" />
+                Clear Cart
+              </Button>
+            </Col>
+          </Row>
+        )}
       </Row>
     </Container>
   );

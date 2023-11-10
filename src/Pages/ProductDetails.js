@@ -12,6 +12,7 @@ function ProductDetails(props) {
   const [theme] = useThemeHook();
   const { addItem } = useCart();
 
+  //Using UseEffect hook and fetch() to get and display details on a selected item hen clicked
   useEffect(() => {
     fetch(`http://localhost:8000/products/${props.productId}`)
       .then((r) => r.json())

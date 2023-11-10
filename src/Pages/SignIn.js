@@ -20,33 +20,33 @@ function SignIn() {
   const [theme] = useThemeHook();
   const navigate = useNavigate();
 
-  function handleSubmit(e){
+  //Function to handle submission of sign-in form and make a POST request to the store API with user details
+  function handleSubmit(e) {
     const form = e.currentTarget;
-    e.preventDefault()
-    
+    e.preventDefault();
+
     const username = form.username.value;
     const password = form.password.value;
-    if(username && password){
-        setLoading(true);
-        console.log(username, password);
-        fetch('https://fakestoreapi.com/auth/login',{
-            method:'POST',
-            body:JSON.stringify({
-                username: "username",
-                password: "password"
-            })
-        })
-            .then(res=>res.json())
-            .then(json=>console.log(json))
-        .catch(error => console.error(error))
+    if (username && password) {
+      setLoading(true);
+      console.log(username, password);
+      fetch("https://fakestoreapi.com/auth/login", {
+        method: "POST",
+        body: JSON.stringify({
+          username: "username",
+          password: "password",
+        }),
+      })
+        .then((res) => res.json())
+        .then((json) => console.log(json))
+        .catch((error) => console.error(error))
         .finally(() => {
-            setLoading(false);
-            navigate("/", {replace: true})
-           
-        })
+          setLoading(false);
+          navigate("/", { replace: true }); //Navigating user back to the Home Page upon successful sign-up
+        });
     }
-
   }
+  //Form for user sign-up. Form Control is achieved using Bootstrap
   return (
     <Container className="py-5 mt-5">
       <Row className="justify-content-center mt-5">
@@ -91,20 +91,38 @@ function SignIn() {
                 required
               />
             </InputGroup>
-            <Button type="submit" disabled={loading} 
-            className={`${theme? "bg-dark-primary text-black" : "bg-light-primary"} m-auto d-block`}
-            style={{border: 0}}>
-                {loading? <> <Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true"/>Loading... </> : "Sign in"}
-               
+            <Button
+              type="submit"
+              disabled={loading}
+              className={`${
+                theme ? "bg-dark-primary text-black" : "bg-light-primary"
+              } m-auto d-block`}
+              style={{ border: 0 }}
+            >
+              {loading ? (
+                <>
+                  {" "}
+                  <Spinner
+                    as="span"
+                    animation="grow"
+                    size="sm"
+                    role="status"
+                    aria-hidden="true"
+                  />
+                  Loading...{" "}
+                </>
+              ) : (
+                "Sign in"
+              )}
             </Button>
             <Form.Group className="mt-3 text-center">
-               <Form.Text className="text-muted fw-bold">
-                    New to Ingenious?
-               </Form.Text>
-               <Row className="py2 border-bottom mb-3"/>
-               <Link to="/register" className="btn btn-info rounded-0">
+              <Form.Text className="text-muted fw-bold">
+                New to Ingenious?
+              </Form.Text>
+              <Row className="py2 border-bottom mb-3" />
+              <Link to="/register" className="btn btn-info rounded-0">
                 Create your Ingenious Account
-               </Link>
+              </Link>
             </Form.Group>
           </Form>
         </Col>

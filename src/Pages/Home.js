@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col, InputGroup, FormControl, Form } from "react-bootstrap";
+import { Container, Row, Col, InputGroup, Form } from "react-bootstrap";
 import { useThemeHook } from "../GlobalComponents/ThemeProvider";
 import { BiSearch } from "react-icons/bi";
-import SearchFilter from "react-filter-search"
+import SearchFilter from "react-filter-search";
 import ProductCard from "../Components/ProductCard";
 
 function Home() {
@@ -10,15 +10,15 @@ function Home() {
   const [searchInput, setSearchInput] = useState("");
   const [productData, setProductData] = useState([]);
 
-  //Fetching product data from API using fetch and the useEffect Hook
+  //Fetching product data from API using fetch and the useEffect Hook and displaying them
   useEffect(() => {
-   fetch("http://localhost:8000/products")
-   .then((r) => r.json())
-   .then((products) => {
-    setProductData(products)       //Updating the state of product data to the fetched product array
-    console.log(productData);
-   })
-  },[])  //Empty dependencies array to fetch the data only once
+    fetch("http://localhost:8000/products")
+      .then((r) => r.json())
+      .then((products) => {
+        setProductData(products); //Updating the state of product data to the fetched product array
+        console.log(productData);
+      });
+  }, []); //Empty dependencies array to fetch the data only once
 
   return (
     <Container className="py-4">
@@ -28,28 +28,36 @@ function Home() {
             Search Products
           </h1>
           <InputGroup className="mb-3">
-            <InputGroup.Text className={theme? "bg-black text-dark-primary" : "bg-light text-light-primary"}>
-            <BiSearch size="2rem" />
+            <InputGroup.Text
+              className={
+                theme
+                  ? "bg-black text-dark-primary"
+                  : "bg-light text-light-primary"
+              }
+            >
+              <BiSearch size="2rem" />
             </InputGroup.Text>
             <Form.Control
               placeholder="Search"
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
-              className={theme? "bg-light-black text-light" : "bg-light text-black"}
+              className={
+                theme ? "bg-light-black text-light" : "bg-light text-black"
+              }
             />
           </InputGroup>
-          
         </Col>
+        {/**Using search filter to filter the displayed products */}
         <SearchFilter
-         value={searchInput}
-         data={productData}
-         renderResults = {results => (
+          value={searchInput}
+          data={productData}
+          renderResults={(results) => (
             <Row className="justify-content-center">
               {results.map((item, index) => (
-                <ProductCard data={item} key={index}/>
+                <ProductCard data={item} key={index} />
               ))}
             </Row>
-         )}
+          )}
         />
       </Row>
     </Container>
