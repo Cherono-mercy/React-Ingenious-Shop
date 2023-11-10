@@ -2,10 +2,11 @@ import React from "react";
 import { Button, Card } from "react-bootstrap";
 import { useThemeHook } from "../GlobalComponents/ThemeProvider";
 import { useCart } from "react-use-cart";
-import {BsCartPlus} from "react-icons/bs"
+import {BsCartPlus} from "react-icons/bs";
+import { Link } from "@reach/router";
 
 function ProductCard(props) {
-  let { image, price, title } = props.data;
+  let { image, price, title, id } = props.data;
   const [theme] = useThemeHook();
   const { addItem } = useCart();
 
@@ -18,13 +19,14 @@ function ProductCard(props) {
     style={{ width: "18rem", height: "auto" }}
     className={`${theme? 'bg-black text-light' : 'bg-light text-black'}text-center p-0 overlo-hidden shadow mx-auto mb-4`}
     >
+      <Link to={`/product-details/${id}`}>
         <div style={{background: "white", height: "15rem", overflow: "hidden", display: "flex",
     justifyContent: "center", alignItems: "center", marginBottom: "inherit"}}>
             <div style={{width: "9rem"}}>
             <Card.Img variant="top" src={image} className="img-fluid"/>
             </div>
         </div>
-      
+        </Link>
       <Card.Body className= {`${theme? "bg-light-black text-light" : "bg-light text-black"}`}>
         <Card.Title style={{textOverflow: "ellipsis", overflow: "hidden", whiteSpace: "nowrap"}}>
             {title}
